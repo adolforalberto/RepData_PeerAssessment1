@@ -158,6 +158,10 @@ hist(daily_steps2)
 
 ![](./PA1_template_files/figure-html/unnamed-chunk-16-1.png) 
 
+
+
+**New Values of Mean and Median**
+
 Calculate the mean of the total number of steps taken per day
 
 ```r
@@ -188,6 +192,40 @@ summary(daily_steps2)
 ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##      41    9819   10770   10770   12810   21190
 ```
+
+**Previous values of Mean and Median**
+
+Calculate the mean of the total number of steps taken per day
+
+```r
+mean(daily_steps, na.rm=TRUE)
+```
+
+```
+## [1] 10766.19
+```
+
+Calculate the median of the total number of steps taken per day
+
+```r
+median(daily_steps, na.rm=TRUE)
+```
+
+```
+## [1] 10765
+```
+
+Verify the values of Mean and Median provided by the summary function
+
+```r
+summary(daily_steps)
+```
+
+```
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+##      41    8841   10760   10770   13290   21190       8
+```
+
 
 ##### Plot a time series plot of the 5 minute interval for weekends and weekdays and the average steps taken on each interval
 
@@ -220,7 +258,7 @@ xyplot(data03$steps ~ data03$interval  | data03$datetype,
       ylab="Steps", xlab="5 minute intervals")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-21-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-24-1.png) 
 
 Plotting a separate plot for weekends (not asked in the assignment)
 
@@ -230,7 +268,7 @@ subwe_steps=tapply(subwe$steps, subwe$interval, mean, na.rm=TRUE)
 plot(subwe_steps, type="l", main="Average steps per interval during Weekends", ylab="Average steps", xlab="5 minute intervals")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-22-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-25-1.png) 
 
 Plotting a separate plot for weekdays (not asked in the assignment)
 
@@ -240,7 +278,7 @@ subWD_steps=tapply(subWD$steps, subWD$interval, mean, na.rm=TRUE)
 plot(subWD_steps, type="l", main="Average steps per interval during Weekdays", ylab="Average steps", xlab="5 minute intervals")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-23-1.png) 
+![](./PA1_template_files/figure-html/unnamed-chunk-26-1.png) 
 
 
 #The end

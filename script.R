@@ -65,6 +65,7 @@ daily_steps2=tapply(data02$steps, data02$date, sum)
 # histogram of the total number of steps taken each day
 hist(daily_steps2)
 
+# New Values of Mean and Median
 # Calculate the mean of the total number of steps taken per day
 mean(daily_steps2, na.rm=TRUE)
 
@@ -73,6 +74,16 @@ median(daily_steps2, na.rm=TRUE)
 
 # Verify the values of Mean and Median provided by the summary function
 summary(daily_steps2)
+
+# Previous values of Mean and Median 
+# Calculate the mean of the total number of steps taken per day
+mean(daily_steps, na.rm=TRUE)
+
+# Calculate the median of the total number of steps taken per day
+median(daily_steps, na.rm=TRUE)
+
+# Verify the values of Mean and Median provided by the summary function
+summary(daily_steps)
 
 
 # Copy the dataset of the previous step and create a factor variable to signal weekdays and weekends
