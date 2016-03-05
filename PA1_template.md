@@ -1,4 +1,9 @@
-# Reproducible Research: Peer Assessment 1
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 
 ## Loading and preprocessing the data
@@ -31,7 +36,7 @@ Histogram of the total number of steps taken each day
 hist(daily_steps)
 ```
 
-![](./PA1_template_files/figure-html/hist-1.png) 
+![plot of chunk hist](figure/hist-1.png)
 
 Calculate the mean of the total number of steps taken per day
 
@@ -79,7 +84,7 @@ Plot time series of the 5 minute intervaland
 plot(interval_steps, type="l") 
 ```
 
-![](./PA1_template_files/figure-html/plot-1.png) 
+![plot of chunk plot](figure/plot-1.png)
 
 Identify the interval with the maximum number of steps
 
@@ -142,7 +147,6 @@ data02$interval_steps<-NULL
 ```
 
 
-## Are there differences in activity patterns between weekdays and weekends?
 
 Calculate total steps per day
 
@@ -156,7 +160,7 @@ histogram of the total number of steps taken each day
 hist(daily_steps2)
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-16-1.png) 
+![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png)
 
 
 
@@ -226,8 +230,10 @@ summary(daily_steps)
 ##      41    8841   10760   10770   13290   21190       8
 ```
 
+#### The mean is the same for both datasets. There is a small increase in the median of the dataset with the filled missing values.
 
-##### Plot a time series plot of the 5 minute interval for weekends and weekdays and the average steps taken on each interval
+
+## Are there differences in activity patterns between weekdays and weekends?
 
 Copy the dataset of the previous step and create a factor variable to signal weekdays and weekends
 
@@ -242,12 +248,13 @@ dim(data03)[1]
 
 ```r
 for (i in 1:dim(data03)[1]) {
-  if ((weekdays(as.POSIXct(data03$date[i]))=="sÃ¡bado") || (weekdays(as.POSIXct(data03$date[i]))=="domingo"))
+  if ((weekdays(as.POSIXct(data03$date[i]))=="sábado") || (weekdays(as.POSIXct(data03$date[i]))=="domingo"))
       data03$datetype[i]<-"weekend"
     else
       data03$datetype[i]<-"weekday"
   }
 ```
+
 
 Plotting the combined Panel Plot 
 
@@ -258,7 +265,7 @@ xyplot(data03$steps ~ data03$interval  | data03$datetype,
       ylab="Steps", xlab="5 minute intervals")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-24-1.png) 
+![plot of chunk unnamed-chunk-24](figure/unnamed-chunk-24-1.png)
 
 Plotting a separate plot for weekends (not asked in the assignment)
 
@@ -268,7 +275,7 @@ subwe_steps=tapply(subwe$steps, subwe$interval, mean, na.rm=TRUE)
 plot(subwe_steps, type="l", main="Average steps per interval during Weekends", ylab="Average steps", xlab="5 minute intervals")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-25-1.png) 
+![plot of chunk unnamed-chunk-25](figure/unnamed-chunk-25-1.png)
 
 Plotting a separate plot for weekdays (not asked in the assignment)
 
@@ -278,7 +285,7 @@ subWD_steps=tapply(subWD$steps, subWD$interval, mean, na.rm=TRUE)
 plot(subWD_steps, type="l", main="Average steps per interval during Weekdays", ylab="Average steps", xlab="5 minute intervals")
 ```
 
-![](./PA1_template_files/figure-html/unnamed-chunk-26-1.png) 
+![plot of chunk unnamed-chunk-26](figure/unnamed-chunk-26-1.png)
 
 
-#The end
+## The end

@@ -110,7 +110,6 @@ data02$interval_steps<-NULL
 ```
 
 
-## Are there differences in activity patterns between weekdays and weekends?
 
 Calculate total steps per day
 ```{r}
@@ -158,8 +157,10 @@ Verify the values of Mean and Median provided by the summary function
 summary(daily_steps)
 ```
 
+#### The mean is the same for both datasets. There is a small increase in the median of the dataset with the filled missing values.
 
-##### Plot a time series plot of the 5 minute interval for weekends and weekdays and the average steps taken on each interval
+
+## Are there differences in activity patterns between weekdays and weekends?
 
 Copy the dataset of the previous step and create a factor variable to signal weekdays and weekends
 ```{r}
@@ -172,6 +173,7 @@ for (i in 1:dim(data03)[1]) {
       data03$datetype[i]<-"weekday"
   }
 ```
+
 
 Plotting the combined Panel Plot 
 ```{r}
@@ -196,4 +198,4 @@ plot(subWD_steps, type="l", main="Average steps per interval during Weekdays", y
 ```
 
 
-#The end
+## The end
